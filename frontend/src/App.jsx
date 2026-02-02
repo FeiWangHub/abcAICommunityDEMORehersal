@@ -85,7 +85,11 @@ function App() {
   const handleFeedbackSubmit = async () => {
     if (!feedbackMsg.trim()) return;
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || '';
+      // Use relative path in production to let Vercel handle routing
+      // Use environment variable in development
+      const isDev = import.meta.env.DEV;
+      const apiUrl = isDev ? (import.meta.env.VITE_API_URL || 'http://localhost:8000') : '';
+      
       await axios.post(`${apiUrl}/api/feedback`, {
         message: feedbackMsg,
         user_email: email

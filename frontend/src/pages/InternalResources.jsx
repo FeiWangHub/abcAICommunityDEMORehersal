@@ -37,7 +37,8 @@ const InternalResources = () => {
   useEffect(() => {
     const fetchResources = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_API_URL || '';
+        const isDev = import.meta.env.DEV;
+        const apiUrl = isDev ? (import.meta.env.VITE_API_URL || 'http://localhost:8000') : '';
         const response = await axios.get(`${apiUrl}/api/resources/internal`);
         setResources(response.data);
       } catch (error) {
