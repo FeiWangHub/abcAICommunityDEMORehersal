@@ -85,7 +85,8 @@ function App() {
   const handleFeedbackSubmit = async () => {
     if (!feedbackMsg.trim()) return;
     try {
-      await axios.post('http://localhost:8000/api/feedback', {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      await axios.post(`${apiUrl}/api/feedback`, {
         message: feedbackMsg,
         user_email: email
       });

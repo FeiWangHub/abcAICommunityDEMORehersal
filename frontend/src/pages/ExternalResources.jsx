@@ -30,7 +30,8 @@ const ExternalResources = () => {
   useEffect(() => {
     const fetchResources = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/resources/external');
+        const apiUrl = import.meta.env.VITE_API_URL || '';
+        const response = await axios.get(`${apiUrl}/api/resources/external`);
         setResources(response.data);
       } catch (error) {
         console.error('Error fetching resources:', error);
