@@ -134,7 +134,7 @@ function App() {
                   display: { xs: 'none', sm: 'block' }
                 }}
               >
-                Plan B-ABC AI community
+                ABC AI community
               </Typography>
             </Box>
             
@@ -145,7 +145,7 @@ function App() {
                 startIcon={<Cpu size={18} />}
                 sx={{ color: 'text.secondary', '&:hover': { color: 'primary.light' } }}
               >
-                internal AI resources
+                Internal AI Resources
               </Button>
               <Button 
                 component={RouterLink} 
@@ -153,7 +153,7 @@ function App() {
                 startIcon={<Globe size={18} />}
                 sx={{ color: 'text.secondary', '&:hover': { color: 'primary.light' } }}
               >
-                external AI resources
+                External AI Resources
               </Button>
             </Box>
 

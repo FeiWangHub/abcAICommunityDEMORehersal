@@ -58,14 +58,16 @@ const Home = () => {
         <Typography variant="h1" gutterBottom sx={{ 
           background: 'linear-gradient(to right, #fff 30%, #94a3b8 100%)',
           WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          mb: 3
+          WebkitFillColor: 'transparent',
+          mb: 3,
+          fontSize: { xs: '2.5rem', md: '4rem' }
         }}>
-          Embrace the new <br /> AI era
+          Empower Innovation with <br /> Global AI Intelligence
         </Typography>
         
-        <Typography variant="h4" sx={{ mb: 6, color: 'text.secondary', maxWidth: '800px', mx: 'auto', fontWeight: 400 }}>
-          Empower efficient work with cutting-edge AI resources and internal community knowledge.
+        <Typography variant="h4" sx={{ mb: 6, color: 'text.secondary', maxWidth: '950px', mx: 'auto', fontWeight: 400, fontSize: { xs: '1.2rem', md: '1.6rem' }, lineHeight: 1.6 }}>
+          The centralized gateway bridging world-class AI ecosystems with our internal innovation hub. <br />
+          Explore the benchmarks, tools, and protocols defining the future of work.
         </Typography>
 
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3} justifyContent="center">
