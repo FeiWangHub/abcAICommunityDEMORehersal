@@ -1,15 +1,14 @@
-import { Routes, Route, Link as RouterLink, useNavigate } from 'react-router-dom';
-import { 
-  AppBar, 
-  Toolbar, 
-  Typography, 
-  Button, 
-  Container, 
-  Box, 
-  InputBase, 
-  alpha, 
+import { Routes, Route, Link as RouterLink } from 'react-router-dom';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Container,
+  Box,
+  InputBase,
+  alpha,
   styled,
-  IconButton,
   Fab,
   Dialog,
   DialogTitle,
@@ -20,10 +19,10 @@ import {
   Alert,
   Tooltip
 } from '@mui/material';
-import { Search as SearchIcon, MessageSquare, Home as HomeIcon, Bot, Cpu, Globe } from 'lucide-react';
+import { Search as SearchIcon, MessageSquare, Bot, Cpu, Globe } from 'lucide-react';
 import { useState } from 'react';
 import axios from 'axios';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 // Page Components
 import Home from './pages/Home';
@@ -80,7 +79,6 @@ function App() {
   const [feedbackMsg, setFeedbackMsg] = useState('');
   const [email, setEmail] = useState('');
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
-  const navigate = useNavigate();
 
   const handleFeedbackSubmit = async () => {
     if (!feedbackMsg.trim()) return;
@@ -89,7 +87,7 @@ function App() {
       // Use environment variable in development
       const isDev = import.meta.env.DEV;
       const apiUrl = isDev ? (import.meta.env.VITE_API_URL || 'http://localhost:8000') : '';
-      
+
       await axios.post(`${apiUrl}/api/feedback`, {
         message: feedbackMsg,
         user_email: email
@@ -98,7 +96,7 @@ function App() {
       setFeedbackOpen(false);
       setFeedbackMsg('');
       setEmail('');
-    } catch (error) {
+    } catch {
       setSnackbar({ open: true, message: 'Failed to submit feedback.', severity: 'error' });
     }
   };
@@ -111,11 +109,11 @@ function App() {
             <Box
               component={RouterLink}
               to="/"
-              sx={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: 1.5, 
-                textDecoration: 'none', 
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1.5,
+                textDecoration: 'none',
                 color: 'inherit',
                 flexGrow: { xs: 1, md: 0 },
                 mr: 4
@@ -127,7 +125,7 @@ function App() {
               <Typography
                 variant="h6"
                 noWrap
-                sx={{ 
+                sx={{
                   fontWeight: 800,
                   letterSpacing: -0.5,
                   fontSize: '1.25rem',
@@ -137,18 +135,18 @@ function App() {
                 ABC AI community
               </Typography>
             </Box>
-            
+
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1, flexGrow: 1 }}>
-              <Button 
-                component={RouterLink} 
+              <Button
+                component={RouterLink}
                 to="/internal-resources"
                 startIcon={<Cpu size={18} />}
                 sx={{ color: 'text.secondary', '&:hover': { color: 'primary.light' } }}
               >
                 Internal AI Resources
               </Button>
-              <Button 
-                component={RouterLink} 
+              <Button
+                component={RouterLink}
                 to="/external-resources"
                 startIcon={<Globe size={18} />}
                 sx={{ color: 'text.secondary', '&:hover': { color: 'primary.light' } }}
@@ -181,12 +179,12 @@ function App() {
       </Box>
 
       <Tooltip title="Feedback" placement="left">
-        <Fab 
-          color="primary" 
-          aria-label="feedback" 
-          sx={{ 
-            position: 'fixed', 
-            bottom: 32, 
+        <Fab
+          color="primary"
+          aria-label="feedback"
+          sx={{
+            position: 'fixed',
+            bottom: 32,
             right: 32,
             boxShadow: '0 8px 32px rgba(124, 58, 237, 0.4)',
             '&:hover': {
@@ -200,8 +198,8 @@ function App() {
         </Fab>
       </Tooltip>
 
-      <Dialog 
-        open={feedbackOpen} 
+      <Dialog
+        open={feedbackOpen}
         onClose={() => setFeedbackOpen(false)}
         PaperProps={{
           sx: {
@@ -245,9 +243,9 @@ function App() {
         </DialogActions>
       </Dialog>
 
-      <Snackbar 
-        open={snackbar.open} 
-        autoHideDuration={6000} 
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
         onClose={() => setSnackbar({ ...snackbar, open: false })}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       >

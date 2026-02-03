@@ -106,7 +106,7 @@ const Home = () => {
             { icon: <Cpu size={40} />, title: "Model Garden", desc: "Access company-specific AI platforms and models tailored for our needs." },
             { icon: <Users size={40} />, title: "Community", desc: "Share feedback and collaborate with colleagues to build an AI culture." }
           ].map((feature, idx) => (
-            <Grid size={{ xs: 12, md: 4 }} key={idx}>
+            <Grid item xs={12} md={4} key={idx}>
               <Paper 
                 component={motion.div}
                 initial={{ opacity: 0, y: 20 }}
