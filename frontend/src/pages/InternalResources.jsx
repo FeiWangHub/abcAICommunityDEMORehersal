@@ -21,10 +21,31 @@ import {
   Chip,
   Snackbar,
   Alert,
-  Grid
+  Grid,
+  Divider,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText
 } from '@mui/material';
 // import Grid from '@mui/material/Grid2';
-import { Copy, Download, Search, Info, LayoutGrid, Terminal, Table as TableIcon } from 'lucide-react';
+import { 
+  Copy, 
+  Download, 
+  Search, 
+  Info, 
+  LayoutGrid, 
+  Terminal, 
+  Table as TableIcon, 
+  Cpu, 
+  Database, 
+  BookOpen, 
+  ExternalLink, 
+  Globe,
+  Sparkles,
+  Zap,
+  Layers
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 
@@ -77,6 +98,88 @@ const InternalResources = () => {
         <Typography variant="h2" gutterBottom sx={{ fontWeight: 800, mb: 6, textAlign: 'center' }}>
           Internal AI Assets
         </Typography>
+
+        {/* AI Platform Big Card */}
+        <Box sx={{ mb: 10 }}>
+          <Card sx={{ 
+            background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%)',
+            borderRadius: 4,
+            border: '1px solid rgba(124, 58, 237, 0.2)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+            overflow: 'hidden',
+            position: 'relative'
+          }}>
+            <Box sx={{ 
+              position: 'absolute', 
+              top: -100, 
+              right: -100, 
+              width: 300, 
+              height: 300, 
+              background: 'radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%)',
+              zIndex: 0 
+            }} />
+            
+            <CardContent sx={{ p: { xs: 3, md: 6 }, position: 'relative', zIndex: 1 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 4 }}>
+                <Box sx={{ p: 1.5, borderRadius: 2, bgcolor: 'primary.main', color: 'white' }}>
+                  <Layers size={32} />
+                </Box>
+                <Box>
+                  <Typography variant="h3" sx={{ fontWeight: 800 }}>AI Platform</Typography>
+                  <Typography variant="body1" sx={{ color: 'text.secondary' }}>Our integrated ecosystem for AI development and innovation</Typography>
+                </Box>
+              </Box>
+
+              <Grid container spacing={4}>
+                {/* Model Garden */}
+                <Grid item xs={12} md={4}>
+                  <Paper sx={{ p: 3, height: '100%', bgcolor: 'rgba(255,255,255,0.03)', borderRadius: 3, border: '1px solid rgba(255,255,255,0.05)' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
+                      <Cpu size={20} color="#8b5cf6" />
+                      <Typography variant="h6" sx={{ fontWeight: 700 }}>Model Garden</Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>Access our curated collection of frontier and internal models.</Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                      {['GPT-4o', 'Claude 3.5', 'Llama 3.1', 'DeepSeek-V2', 'Internal-LLM-v2'].map((model) => (
+                        <Chip key={model} label={model} size="small" sx={{ bgcolor: 'rgba(139, 92, 246, 0.1)', color: 'primary.light', fontSize: '0.7rem' }} />
+                      ))}
+                    </Box>
+                  </Paper>
+                </Grid>
+
+                {/* RAG Studio */}
+                <Grid item xs={12} md={4}>
+                  <Paper sx={{ p: 3, height: '100%', bgcolor: 'rgba(255,255,255,0.03)', borderRadius: 3, border: '1px solid rgba(255,255,255,0.05)' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
+                      <Database size={20} color="#10b981" />
+                      <Typography variant="h6" sx={{ fontWeight: 700 }}>RAG Studio</Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>Build knowledge-aware agents with our Retrieval-Augmented Generation pipeline.</Typography>
+                    <Box sx={{ display: 'flex', gap: 2 }}>
+                      <Button size="small" variant="contained" color="success" startIcon={<Zap size={14} />} sx={{ borderRadius: 1.5 }}>Launch Studio</Button>
+                      <Button size="small" variant="outlined" color="success" startIcon={<BookOpen size={14} />} sx={{ borderRadius: 1.5 }}>Wiki</Button>
+                    </Box>
+                  </Paper>
+                </Grid>
+
+                {/* Doc Wiki */}
+                <Grid item xs={12} md={4}>
+                  <Paper sx={{ p: 3, height: '100%', bgcolor: 'rgba(255,255,255,0.03)', borderRadius: 3, border: '1px solid rgba(255,255,255,0.05)' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
+                      <Globe size={20} color="#3b82f6" />
+                      <Typography variant="h6" sx={{ fontWeight: 700 }}>Doc Wiki</Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>Comprehensive documentation for all internal AI protocols and best practices.</Typography>
+                    <Box sx={{ display: 'flex', gap: 2 }}>
+                      <Button size="small" variant="contained" color="primary" startIcon={<ExternalLink size={14} />} sx={{ borderRadius: 1.5 }}>Read Docs</Button>
+                      <Button size="small" variant="outlined" color="primary" startIcon={<BookOpen size={14} />} sx={{ borderRadius: 1.5 }}>Wiki</Button>
+                    </Box>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Box>
 
         {/* Model Garden Section */}
         <Box sx={{ mb: 10 }}>

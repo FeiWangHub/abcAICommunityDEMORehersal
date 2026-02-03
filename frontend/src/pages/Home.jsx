@@ -62,7 +62,7 @@ const Home = () => {
           mb: 3,
           fontSize: { xs: '2.5rem', md: '4rem' }
         }}>
-          Empower Innovation with <br /> Global AI Intelligence
+          Empowering you with <br /> AI tooling, resources, knowledge
         </Typography>
         
         <Typography variant="h4" sx={{ mb: 6, color: 'text.secondary', maxWidth: '950px', mx: 'auto', fontWeight: 400, fontSize: { xs: '1.2rem', md: '1.6rem' }, lineHeight: 1.6 }}>
