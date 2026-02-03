@@ -1,0 +1,8 @@
+{
+  "name": "abc-ai-community-root",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}
