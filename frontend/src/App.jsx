@@ -141,19 +141,19 @@ function App() {
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1, flexGrow: 1 }}>
               <Button 
                 component={RouterLink} 
-                to="/external-resources"
-                startIcon={<Globe size={18} />}
-                sx={{ color: 'text.secondary', '&:hover': { color: 'primary.light' } }}
-              >
-                External AI
-              </Button>
-              <Button 
-                component={RouterLink} 
                 to="/internal-resources"
                 startIcon={<Cpu size={18} />}
                 sx={{ color: 'text.secondary', '&:hover': { color: 'primary.light' } }}
               >
-                Internal AI
+                internal AI resources
+              </Button>
+              <Button 
+                component={RouterLink} 
+                to="/external-resources"
+                startIcon={<Globe size={18} />}
+                sx={{ color: 'text.secondary', '&:hover': { color: 'primary.light' } }}
+              >
+                external AI resources
               </Button>
             </Box>
 
