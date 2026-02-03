@@ -134,7 +134,7 @@ function App() {
                   display: { xs: 'none', sm: 'block' }
                 }}
               >
-                ABC AI COMMUNITY
+                Plan B-ABC AI community
               </Typography>
             </Box>
             
